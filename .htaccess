@@ -1,0 +1,26 @@
+
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /jimshipley.dev/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /jimshipley.dev/index.php [L]
+</IfModule>
+
+# END WordPress
+
+# bin - 2015-06-24
+# Increase max execution time to 300 
+php_value max_execution_time 300
+
+# Allow Apache to display FontAwesome icons
+<FilesMatch ".(ttf|otf|eot|woff)$">
+  <IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+  </IfModule>
+</FilesMatch>
+
+# end bin
